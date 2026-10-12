@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asma Wasif - Data Analyst &amp; Analytics Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#141a2e;
+  --ink-soft:#4a5370;
+  --paper:#f6f5f2;
+  --paper-2:#ecebe6;
+  --accent:#9a6212;
+  --accent-2:#d4922a;
+  --line:rgba(20,26,46,.12);
+  --display:'Space Grotesk',system-ui,sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{max-width:1100px;margin:0 auto;padding:0 32px}
+
+/* ---------- nav ---------- */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(246,245,242,.88);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
+.brand{font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:-.02em}
+.navlinks{display:flex;gap:28px}
+.navlinks a{
+  text-decoration:none;color:var(--ink-soft);
+  font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;
+  transition:color .2s;
+}
+.navlinks a:hover{color:var(--accent)}
+.nav-cta{
+  text-decoration:none;color:var(--ink);
+  border:1px solid var(--ink);border-radius:2px;
+  padding:9px 18px;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;
+  transition:all .2s;white-space:nowrap;
+}
+.nav-cta:hover{background:var(--ink);color:var(--paper)}
+
+/* ---------- shared ---------- */
+section{padding:110px 0;border-bottom:1px solid var(--line)}
+.eyebrow{
+  display:flex;align-items:center;gap:14px;
+  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-soft);font-weight:600;margin-bottom:22px;
+}
+.eyebrow::before{content:"";width:40px;height:1px;background:var(--ink-soft)}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.025em;line-height:1.1;margin:0}
+h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:28px}
+p{color:var(--ink-soft);max-width:62ch}
+
+/* ---------- hero ---------- */
+.hero{
+  background:var(--ink);color:var(--paper);
+  padding:54px 0 66px;border-bottom:none;
+}
+.hero .eyebrow{color:rgba(246,245,242,.55)}
+.hero .eyebrow::before{background:rgba(246,245,242,.4)}
+.hero h1{font-size:clamp(2.8rem,7vw,5rem);font-weight:700}
+.hero .role{
+  font-family:var(--display);font-size:clamp(1.1rem,2.2vw,1.45rem);
+  color:#f2c57c;margin:22px 0 26px;font-weight:400;
+}
+.hero p{color:rgba(246,245,242,.72);font-size:1.05rem;max-width:54ch}
+.hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:60px;align-items:start}
+.hero-facts{display:grid;gap:1px;background:rgba(246,245,242,.16);border:1px solid rgba(246,245,242,.16)}
+.fact{background:var(--ink);padding:22px 24px}
+.fact .k{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,245,242,.66);font-weight:600}
+.fact .v{font-family:var(--display);font-size:1.35rem;margin-top:6px;color:var(--paper)}
+.btns{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap}
+.btn{
+  text-decoration:none;padding:14px 26px;border-radius:2px;
+  font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  transition:all .2s;
+}
+.btn-solid{background:var(--paper);color:var(--ink)}
+.btn-solid:hover{background:#f2c57c}
+.btn-ghost{border:1px solid rgba(246,245,242,.35);color:var(--paper)}
+.btn-ghost:hover{border-color:var(--paper);background:rgba(246,245,242,.08)}
+
+/* ---------- hero photo ---------- */
+.name-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.name-row .hero-photo{margin:0;flex-shrink:0}
+.hero-photo{
+  width:96px;height:96px;border-radius:50%;object-fit:cover;
+  border:2px solid rgba(246,245,242,.25);display:block;margin-bottom:18px;
+}
+
+/* ---------- marquee strip ---------- */
+.strip{
+  background:var(--paper-2);border-bottom:1px solid var(--line);
+  padding:16px 0;overflow:hidden;white-space:nowrap;
+}
+.strip-track{
+  display:inline-flex;
+  animation:scroll 32s linear infinite;
+}
+.strip-track span{
+  display:inline-block;padding:0 28px;
+  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-soft);font-weight:600;
+}
+@keyframes scroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+.strip:hover .strip-track{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){
+  .strip-track{animation:none}
+}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:70px;align-items:start}
+.exp-item{padding:18px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px}
+.exp-item:last-child{border-bottom:1px solid var(--line)}
+.exp-role{font-family:var(--display);font-size:1rem}
+.exp-org{font-size:.86rem;color:var(--ink-soft)}
+.exp-years{font-size:.76rem;letter-spacing:.1em;color:var(--ink-soft);white-space:nowrap;padding-top:3px}
+
+/* ---------- projects ---------- */
+.project{
+  background:#fff;border:1px solid var(--line);
+  padding:44px;margin-bottom:24px;
+  transition:border-color .25s, transform .25s;
+}
+.project:hover{border-color:var(--accent);transform:translateY(-3px)}
+.project-num{
+  font-family:var(--display);font-size:.8rem;letter-spacing:.1em;
+  color:var(--ink-soft);margin-bottom:14px;
+}
+.project h3{font-size:1.7rem;margin-bottom:14px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 26px;align-items:center}
+.tag{
+  background:var(--paper-2);padding:7px 13px;
+  font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);font-weight:600;
+}
+.tag-metric{background:var(--ink);color:var(--paper)}
+.project-links{display:flex;gap:26px}
+.project-links a{
+  color:var(--accent);text-decoration:none;font-weight:600;
+  font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;
+  border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .2s;
+}
+.project-links a:hover{border-color:var(--accent)}
+
+/* ---------- toolkit ---------- */
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.tool-col{background:var(--paper);padding:30px 28px}
+.tool-col h3{font-size:1.05rem;margin-bottom:18px}
+.tool-col ul{list-style:none;padding:0;margin:0}
+.tool-col li{
+  font-size:.92rem;color:var(--ink-soft);padding:5px 0 5px 16px;position:relative;
+}
+.tool-col li::before{
+  content:"";position:absolute;left:0;top:14px;
+  width:5px;height:5px;background:var(--accent-2);
+}
+
+/* ---------- toolkit cards ---------- */
+.tool-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.tool-card{background:#fff;border:1px solid var(--line);padding:30px 28px 32px;transition:border-color .25s, transform .25s}
+.tool-card:hover{border-color:var(--accent-2);transform:translateY(-3px)}
+.tool-icon{width:48px;height:48px;background:var(--paper-2);display:grid;place-items:center;margin-bottom:22px;color:var(--accent)}
+.tool-icon svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tool-card h3{font-size:1.1rem;margin-bottom:16px}
+.tool-card ul{list-style:none;padding:0;margin:0}
+.tool-card li{font-size:.95rem;color:var(--ink-soft);padding:5px 0 5px 16px;position:relative}
+.tool-card li::before{content:"";position:absolute;left:0;top:14px;width:5px;height:5px;background:var(--accent-2)}
+
+/* ---------- education ---------- */
+.edu-item{border-left:2px solid var(--line);padding:4px 0 26px 26px;position:relative}
+.edu-item::before{
+  content:"";position:absolute;left:-5px;top:10px;
+  width:8px;height:8px;background:var(--accent-2);border-radius:50%;
+}
+.edu-item h3{font-size:1.15rem;margin-bottom:4px}
+.edu-item span{font-size:.86rem;color:var(--ink-soft)}
+
+/* ---------- contact ---------- */
+.contact{background:var(--ink);color:var(--paper);border-bottom:none}
+.contact .eyebrow{color:rgba(246,245,242,.55)}
+.contact .eyebrow::before{background:rgba(246,245,242,.4)}
+.contact p{color:rgba(246,245,242,.72)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.links{display:grid;gap:12px}
+.links a{
+  display:flex;justify-content:space-between;align-items:center;
+  border:1px solid rgba(246,245,242,.25);padding:18px 22px;
+  color:var(--paper);text-decoration:none;font-size:.92rem;
+  transition:all .2s;
+}
+.links a:hover{background:rgba(246,245,242,.08);border-color:var(--paper)}
+.links .arrow{color:rgba(246,245,242,.5)}
+
+footer{
+  background:var(--ink);color:rgba(246,245,242,.62);
+  padding:30px 0;border-top:1px solid rgba(246,245,242,.14);
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+@media (max-width:820px){
+  .wrap{padding:0 22px}
+  section{padding:70px 0}
+  .hero{padding:80px 0 70px}
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .navlinks{display:none}
+  .project{padding:28px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Asma Wasif</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#toolkit">Toolkit</a>
+      <a href="#education">Education</a>
+    </div>
+    <a class="nav-cta" href="#contact">Get in touch</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Senior Data Analyst · Bay Area</div>
+      <div class="name-row"><h1>Asma Wasif</h1><img src="profile.jpg" alt="Asma Wasif" class="hero-photo" onerror="this.style.display='none'"></div>
+      <div class="role">Data Analyst &amp; Analytics Engineer</div>
+      <p>I turn messy operational data into decisions a business can act on, and I build
+         the modelling layer that keeps those numbers reliable: tested, documented, and
+         version-controlled.</p>
+      <div class="btns">
+        <a class="btn btn-solid" href="#work">See the work</a>
+        <a class="btn btn-ghost" href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="hero-facts">
+      <div class="fact"><div class="k">Experience</div><div class="v">7+ years</div></div>
+      <div class="fact"><div class="k">Core stack</div><div class="v">dbt · Snowflake · SQL</div></div>
+      <div class="fact"><div class="k">Based in</div><div class="v">San Jose, CA</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="strip-track">
+    <span>dbt</span><span>·</span><span>Snowflake</span><span>·</span>
+    <span>SQL</span><span>·</span><span>Python</span><span>·</span>
+    <span>Power BI</span><span>·</span><span>Azure Data Factory</span><span>·</span>
+    <span>Databricks</span><span>·</span><span>Git</span><span>·</span>
+    <span>dbt</span><span>·</span><span>Snowflake</span><span>·</span>
+    <span>SQL</span><span>·</span><span>Python</span><span>·</span>
+    <span>Power BI</span><span>·</span><span>Azure Data Factory</span><span>·</span>
+    <span>Databricks</span><span>·</span><span>Git</span><span>·</span>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow">Who I am</div>
+      <h2>Raw data is cheap.<br>Trustworthy data isn't.</h2>
+      <p>I've spent seven years in analytics across water utilities, building research
+         and medical devices. Most of that work has been turning messy operational data
+         into something a business can act on.</p>
+      <p>I work on both sides of the data stack. Analysis is where I find out what the
+         numbers mean. Engineering is where I make sure they can be trusted: pipelines in
+         Azure Data Factory and Databricks, and models in dbt and Snowflake, tested and
+         documented so a figure means the same thing on Monday as it did on Friday.</p>
+      <p>My FinTech project is a dbt warehouse on Snowflake, with tests on every key, built
+         on a synthetic dataset. My churn project used a public telecom sample to find what
+         drives customers to leave, then raised the model's recall from 49% to 76%.</p>
+      <p>I'm looking for Data Analyst and Analytics Engineer roles in the Bay Area.</p>
+    </div>
+    <div>
+      <div class="eyebrow">Experience</div>
+      <div class="exp-item">
+        <div><div class="exp-role">Senior Data Analyst</div><div class="exp-org">Thames Water</div></div>
+        <div class="exp-years">2023 -</div>
+      </div>
+      <div class="exp-item">
+        <div><div class="exp-role">Data Analyst</div><div class="exp-org">BSRIA</div></div>
+        <div class="exp-years">2021 - 23</div>
+      </div>
+      <div class="exp-item">
+        <div><div class="exp-role">Data Analyst</div><div class="exp-org">Becton Dickinson</div></div>
+        <div class="exp-years">2017 - 18</div>
+      </div>
+      <div class="exp-item">
+        <div><div class="exp-role">Analyst</div><div class="exp-org">HTC</div></div>
+        <div class="exp-years">2014 - 15</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK ============ -->
+<section id="work">
+  <div class="wrap">
+    <div class="eyebrow">Selected work</div>
+    <h2>Projects</h2>
+
+    <div class="project">
+      <div class="project-num">01</div>
+      <h3>FinTech Transaction Analytics</h3>
+      <p>A dimensional warehouse modelling neobank member economics. Four staging models
+         clean one source each; two dimensions and a fact table do the joining. Every
+         primary and foreign key is tested, and the documentation generates its own
+         lineage graph from the code. Built on a synthetic transaction dataset.</p>
+      <div class="tags">
+        <span class="tag">dbt Core</span>
+        <span class="tag">Snowflake</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Git</span>
+        <span class="tag tag-metric">1M transactions · 7 models · 27 tests</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/A-Wasi/fintech-dbt" target="_blank">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-num">02</div>
+      <h3>Customer Churn Prediction</h3>
+      <p>A churn model for a telecom company, built on IBM's public Telco sample dataset
+         (7,032 California customers after cleaning). Month-to-month customers churned at
+         42.7%, against 2.8% on two-year contracts. A Random Forest caught 49% of churners
+         at the default 0.5 threshold; lowering the threshold to 0.3 raised recall to 76%,
+         at a cost in precision. Churn Score and Churn Reason were dropped before training,
+         since both are only known after a customer leaves. Results are summarised in a
+         Tableau dashboard.</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">scikit-learn</span>
+        <span class="tag">Tableau</span>
+        <span class="tag tag-metric">Recall 49% → 76%</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/A-Wasi/customer-churn-prediction" target="_blank">GitHub ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ TOOLKIT ============ -->
+<section id="toolkit">
+  <div class="wrap">
+    <div class="eyebrow">Toolkit</div>
+    <h2>What I build with</h2>
+    <div class="tool-cards">
+      <div class="tool-card">
+        <div class="tool-icon"><svg viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="m2 13 10 5 10-5"/></svg></div>
+        <h3>Modelling</h3>
+        <ul>
+          <li>dbt Core</li>
+          <li>Dimensional modelling</li>
+          <li>Data testing</li>
+          <li>SQL</li>
+        </ul>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+        <h3>Warehouses</h3>
+        <ul>
+          <li>Snowflake</li>
+          <li>SQL Server / SSMS</li>
+          <li>Databricks</li>
+        </ul>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><svg viewBox="0 0 24 24"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 6h5a3 3 0 0 1 0 6h-1a3 3 0 0 0 0 6h6"/></svg></div>
+        <h3>Pipelines</h3>
+        <ul>
+          <li>Azure Data Factory</li>
+          <li>Python</li>
+          <li>Git</li>
+        </ul>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+        <h3>Reporting</h3>
+        <ul>
+          <li>Power BI</li>
+          <li>Tableau</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section id="education">
+  <div class="wrap">
+    <div class="eyebrow">Education</div>
+    <h2>Background</h2>
+    <div class="edu-item">
+      <h3>MSc Electrical Engineering</h3>
+      <span>FAST-NUCES</span>
+    </div>
+    <div class="edu-item">
+      <h3>BSc Telecommunications Engineering</h3>
+      <span>FAST-NUCES</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="eyebrow">Get in touch</div>
+      <h2>Let's talk<br>about data.</h2>
+      <p>Open to Data Analyst and Analytics Engineer roles in the Bay Area. Happy to talk through
+         anything in the projects above, or about modelling problems generally.</p>
+    </div>
+    <div class="links">
+      <a href="https://github.com/A-Wasi" target="_blank">GitHub <span class="arrow">↗</span></a>
+      <a href="https://www.linkedin.com/in/asmawasif/" target="_blank">LinkedIn <span class="arrow">↗</span></a>
+      <a href="mailto:asmawasif@live.co.uk">asmawasif@live.co.uk <span class="arrow">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Asma Wasif</span>
+    <span>Data Analytics · Analytics Engineering · dbt</span>
+  </div>
+</footer>
+
+</body>
+</html>
